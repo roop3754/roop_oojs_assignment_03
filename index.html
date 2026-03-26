@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fakebook</title>
+  <link rel="stylesheet" href="./assets/styles/style.css" media="all">
+  <script type="module" src="./assets/script/main.js"></script>
+</head>
+<body>
+     <header>
+      <img src="./assets/media/profile.jpg" id="profilePic" class="profile-img">
+      <h2>Fakebook</h2>
+      <nav>
+        <span>Friends</span>
+        <span>Pages</span>
+        <span>Groups</span>
+      </nav>
+  </header>
+  <section class="post-form">
+    <textarea id="textInput" placeholder="Type Anything?"></textarea>
+    <input type="file" id="imageInput">
+    <button id="postBtn">Post</button>
+  </section>
+
+  <section id="posts"></section>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="close" class="span-right">[&times;]</span>
+      <img src="./assets/media/profile.jpg" id="profilePic" class="profile-img">
+      <div id="userInfo"></div>
+    </div>
+  </div>
+</body>
+</html>
