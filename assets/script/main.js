@@ -37,3 +37,40 @@ import { select, listen } from "./utils.js";
     ["JS Group"],
     true
   );
+listen(profilePic, "click", () => {
+    modal.classList.remove("hidden");
+    userInfo.innerHTML = user.getInfo();
+  });
+
+  listen(close, "click", () => {
+    modal.classList.add("hidden");
+  });
+
+  listen(postBtn, "click", () => {
+    const text = textInput.value.trim();
+    const file = imageInput.files[0];
+
+    if (!text && !file) {
+      alert("Cannot post empty!");
+      return;
+    }
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        const post = new Post(text, reader.result);
+        postsContainer.innerHTML = post.render() + postsContainer.innerHTML;
+
+        textInput.value = "";
+        imageInput.value = "";
+      };
+      reader.readAsDataURL(file);
+    } else {
+      const post = new Post(text, "");
+      postsContainer.innerHTML = post.render() + postsContainer.innerHTML;
+
+      textInput.value = "";
+      imageInput.value = "";
+    }
+  });
+
