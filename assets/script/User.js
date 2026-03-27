@@ -12,4 +12,22 @@ export default class User {
     this.#userName = userName;
     this.#email = email;
   }
+  get id() {return this.#id;}
+  get name() {return this.#name;}
+
+  get userName() {
+    return this.#userName;
+  }
+
+  get email() {
+    return this.#email;
+  }
+
+  getInfo() {
+    return `
+      <p><b>Name:</b> ${this.#name}</p>
+      <p><b>Username:</b> ${this.#userName}</p>
+      <p><b>Email:</b> ${this.#email}</p>
+    `;
+  }
 }
